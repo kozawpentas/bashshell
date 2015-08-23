@@ -5,7 +5,7 @@ uname -p
 }
 while true
 do
-echo "Wlecome"
+echo "Wlecome bash shell"
 echo "1. Check OS"
 echo "2. Check Memory"
 echo "3. Check IP"
