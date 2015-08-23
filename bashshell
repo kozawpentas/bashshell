@@ -1,0 +1,47 @@
+#!/bin/bash
+checksystem(){
+date
+uname -p
+}
+while true
+do
+echo "Wlecome"
+echo "1. Check OS"
+echo "2. Check Memory"
+echo "3. Check IP"
+echo "4. File System"
+echo "5. Install LAMP"
+echo "6. Exit"
+
+
+echo "Choose:"
+read userinput
+
+case $userinput in
+1) cat /etc/redhat-release
+;;
+2) free -m
+;;
+3) ifconfig
+;;
+4) df -h
+;;
+
+5) sudo dnf install httpd -y
+sudo systemctl strat httpd
+sudo systemctl enable httpd
+sudo dnf install php php-mysql php-gd php-mbstring php-mcrypt php-pspell -y
+
+systemctl restart httpd
+
+sudo dnf install mariadb mariadb-server -y
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+;;
+6)echo "Bye"
+exit
+;;
+*)echo "Input Error"
+easc
+done
+
